@@ -11,3 +11,5 @@ Installation Notes
 Clone the repo `git clone https://github.com/staterepme/phillyphoodaccess.git`
 
 Copy `settings_example.py` to `settings.py`. Modify `settings.py` appropriately (better instructions momentarily)
+
+To run the server, `cd` to the root directory (`phillyfoodaccess`) and rund `python manage.py runserver`. In your browser, go to http://localhost:8000. You should see `Hello, world` (or something other than an error) in the browser.
