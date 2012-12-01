@@ -14,6 +14,8 @@ def recipe_puppy_search(ingredient_search, meal=''):
     ingredients = ingredient_search.replace(' ', ',')
     r = requests.get(base_url + 'i=' + ingredients + '&q=' + meal)
     result_dict = json.loads(r.text)
+    for result in result_dict['results']:
+        result['ingredients'] = result['ingredients'].split(', ')
     return result_dict['results']
 
 if __name__ == '__main__':
