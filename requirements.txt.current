@@ -1,4 +1,5 @@
+geopy>=0.94
+httplib2>=0.7.7
 Django==1.4.2
-httplib2==0.7.7
 requests==0.14.2
 wsgiref==0.1.2

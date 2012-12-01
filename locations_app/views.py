@@ -1,11 +1,14 @@
 from models import *
 import urllib,httplib2, mimetypes,os,sys,re,random,string
 from django.shortcuts import render_to_response
-from django.template import Context, loader
+from django.template import RequestContext, loader
 from django.http import HttpResponse
 from subprocess import call
 
 # Create your views here.
 
 def home(request):
-    return render_to_response('index.html')
+    return render_to_response('index.html', context_instance=RequestContext(request))
+
+def direction_results(request):
+    return render_to_response('directions.html', context_instance=RequestContext(request))
