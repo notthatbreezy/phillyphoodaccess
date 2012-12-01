@@ -21,4 +21,4 @@ def recipe_puppy_search(ingredient_search, meal=''):
 if __name__ == '__main__':
     # Example #
     search_terms = 'onions eggs'
-    pp.pprint(recipe_search(search_terms))
+    pp.pprint(recipe_puppy_search(search_terms))
