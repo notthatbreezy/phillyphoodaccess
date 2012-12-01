@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 
 from locations_app.views import *
+from recipes_app.views import *
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -18,4 +19,6 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
 
     ('^$', home),
+    ('^recipes', recipe_search),
+    ('^recipe_search', recipe_results),
 )
