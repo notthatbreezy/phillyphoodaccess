@@ -8,3 +8,12 @@
     margin-top: 20px;
     height: 100px;
 }
+
+table.recipes {
+    width: 300px;
+    margin: 0 auto;
+}
+
+h1.recipes {
+    text-align: center;
+}
