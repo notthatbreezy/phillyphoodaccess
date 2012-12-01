@@ -12,6 +12,11 @@
 .home-panel {
     text-align: center;
     border: 1px solid #E4E4E4;
-    height: 300px;
+    height: 250px;
     border-radius: 3px;
+    padding: 10px;
+}
+
+.home-form-field {
+    height: 90px;
 }
