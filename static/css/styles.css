@@ -1,0 +1,10 @@
+.main-wrapper {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.app-header {
+    text-align: center;
+    margin-top: 20px;
+    height: 100px;
+}
