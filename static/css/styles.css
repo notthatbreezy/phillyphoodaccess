@@ -8,3 +8,10 @@
     margin-top: 20px;
     height: 100px;
 }
+
+.home-panel {
+    text-align: center;
+    border: 1px solid #E4E4E4;
+    height: 300px;
+    border-radius: 3px;
+}
