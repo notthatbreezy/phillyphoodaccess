@@ -1,15 +1,32 @@
 {% extends "base.html" %}
 
 {% block page_content %}
-<table class="table table-striped table-bordered recipes">
-<caption><h1>Recipes for Your Ingredients</h1><br></caption>
+<div class="span3 offset3">
+<div class="accordion" id="accordion2">
 {% for recipe in recipes %}
     {% autoescape off %}
-        <tr>
-            <td><a href="#" rel="tooltip" data-placement="top" data-content="blahblahblah">{{ recipe.title }}</a></td>
-        </tr>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{ forloop.counter }}">
+            {{ recipe.title }}
+          </a>
+        </div>
+        <div id="collapse{{ forloop.counter }}" class="accordion-body collapse">
+          <div class="accordion-inner">
+            To cook this dish, you need all of the following ingredients:
+            {% for ingredient in recipe.ingredients %}
+            <ul>
+                <li>{{ ingredient }}</li>
+            </ul>
+            {% endfor %}
+            <a href="{{ recipe.href }}" target="_blank">View the full recipe</a>
+          </div>
+        </div>
+    </div>
     {% endautoescape %}
 {% endfor %}
-</table>
-<a href="#" rel="tooltip" title="Default tooltip">TEST</a>
+</div>
+</div>
 {% endblock %}
+
