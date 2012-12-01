@@ -21,4 +21,5 @@ urlpatterns = patterns('',
     ('^$', home),
     ('^recipes', recipe_search),
     ('^recipe_search', recipe_results),
+    ('^directions', direction_results),
 )

@@ -9,3 +9,6 @@ from subprocess import call
 
 def home(request):
     return render_to_response('index.html', context_instance=RequestContext(request))
+
+def direction_results(request):
+    return render_to_response('directions.html', context_instance=RequestContext(request))
