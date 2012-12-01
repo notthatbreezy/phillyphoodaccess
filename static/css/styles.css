@@ -14,9 +14,10 @@ table.recipes {
     margin: 0 auto;
 }
 
-h1.recipes {
-    text-align: center;
+.header-text {
+    text-alrign: center;
 }
+
 .home-panel {
     text-align: center;
     border: 1px solid #E4E4E4;
