@@ -39,3 +39,7 @@ nosetests.xml
 .DS_Store
 
 *.swp
+
+wsgi.pyc
+
+wsgi.pyc
