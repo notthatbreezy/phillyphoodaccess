@@ -46,12 +46,19 @@ function initialize() {
 	
 	var center = new google.maps.LatLng(myLocation.latitude, myLocation.longitude);		
 	map.setCenter(center);
+	/*var marker = new google.maps.Marker({
+		map: map,
+		position: center,
+		title: "My Location",
+		icon: "http://image.spreadshirt.com/image-server/v1/designs/12108165,width=190,height=190/Google-Map-marker.png"
+	});*/
 	
 	var list = document.getElementById('snaplist');
 	
 	var li = document.createElement('li');
 	var text = document.createTextNode(snapData.market.fulltext);
-	li.appendChild(text);
+	li.innerHTML = '<a href="#"/>'+snapData.market.fulltext;
+	//li.appendChild(text);
 	list.appendChild(li);
 	
 	li.onclick = function() {
@@ -75,7 +82,7 @@ function initialize() {
 	$.each(snapData.stores, function(index, store) {
 	
 		var item = document.createElement('li');
-		var text = document.createTextNode(store.store_name);
+		item.innerHTML = '<a href="#"/>'+store.store_name;
 		item.appendChild(text);
 	
 		item.onclick = function() {
