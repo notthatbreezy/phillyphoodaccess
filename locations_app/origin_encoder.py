@@ -1,19 +1,9 @@
 from geopy import geocoders
 import json
 
-print 'Encoding Origin'
-
 def encode_origin(origin_address):
-	origin_address += '&components=administrative_area:Philadelphia'
+	origin_address += 'Philadelphia,PA'
 	g = geocoders.Google()
-	place, (lat, lng) = g.geocode(origin_address)
+	place, (lat, lng) = g.geocode(origin_address)#, exactly_one=False)
+	print lat,lng,place
 	return [lat,lng]
-
-def reverse_encode_origin(latlon):
-	coordinates = str(latlon[0]) + ',' + str(latlon[1]) + '&components=administrative_area:Philadelphia'
-	g = geocoders.Google()
-	print g.reverse(coordinates)
-
-latlon = encode_origin('755 N. 26th St.')
-print latlon
-#print reverse_encode_origin(latlon)
