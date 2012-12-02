@@ -43,3 +43,7 @@ nosetests.xml
 wsgi.pyc
 
 wsgi.pyc
+
+recipes_app/login_credentials.py
+
+scripts/login_credentials.py
