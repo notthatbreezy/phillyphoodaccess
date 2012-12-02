@@ -6,6 +6,7 @@ from login_credentials import *
 from urllib import urlencode
 import pprint
 import json
+from operator import itemgetter
 
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -41,15 +42,35 @@ class YummlySearch():
                 recipe['nutrition_info'] = recipe_result['nutritionEstimates']
                 recipe['ingredient_lists'] = recipe_result['ingredientLines']
             except:
-                recipe['ingredient_lists'] = recipe_result['ingredients']
+                recipe['ingredient_lists'] = recipe['ingredients']
+
+    def sort_recipes(self, sort_column):
+        for recipe in self.recipes:
+            for nutrient in recipe['nutrition_info']:
+                if nutrient['attribute'] == sort_column:
+                    print "TRUE!"
+                    recipe['sort_column'] = nutrient['value']
+    
+    def sorted_recipes_new(self):
+        self.recipes_sorted = sorted(self.recipes, key=itemgetter('sort_column'))
 
     def get_recipe(self, recipe_id):
         yummly_key_string = "&_app_id=%s&_app_key=%s" %(yummly_app_id, yummly_app_key)
-        get_url = 'http://api.yummly.com/v1/api/recipe/'+recipe_id+'?'+self.yummly_key_string
+        get_url = 'http://api.yummly.com/v1/api/recipe/'+recipe_id+'?'+ self.yummly_key_string
         print get_url
         r = requests.get(get_url)
         result_dict = json.loads(r.text)
         return result_dict
+
+    def get_daily_percents(self, dv_dictionary):
+        for recipe in self.recipes:
+            for nutrient in recipe['nutrition_info']:
+                dv_total = dv_dictionary[nutrient['attribute']]
+                try:
+                    fraction = 100 * nutrient['value']/dv_total
+                    nutrient['percent'] = "%.2f" % (fraction)
+                except:
+                    nutrient['percent'] = 'None'
 
     def _encode_ingredients(ingredient_string):
         """
@@ -59,6 +80,21 @@ class YummlySearch():
         ingredient_list = [('allowedIngredient', ingredient) for ingredient in ingredient_string.split(", ")]
         return urlencode(ingredient_list)
 
+dv_dict = {'K' : 3.5,
+    'NA' : 2.4,
+    'CHOLE' : 300,
+    'FATRN' : 0,
+    'FASAT' : 20,
+    'CHOCDF' : 300,
+    'FIBTG' : 25,
+    'PROCNT' : 50,
+    'VITC' : 0.06,
+    'CA' : 1,
+    'FE' : .018,
+    'SUGAR' : 50,
+    'ENERC_KCAL' : 2000,
+    'FAT' : 65,
+    'VITA_IU' : 5000}
 
 if __name__ == '__main__':
     # print _encode_ingredients('flour, pumpkin') 
@@ -71,5 +107,5 @@ if __name__ == '__main__':
     # recipe = yummer.get_recipe('Pumpkin-Soup-The-Pioneer-Woman-200149')
     # pp.pprint(recipe)
     yummer.recipe_search('flour, pumpkin')
-    yummer.get_ingredients()
-    pp.pprint(yummer.recipes)
+    # yummer.get_ingredients()
+    # pp.pprint(yummer.recipes)
