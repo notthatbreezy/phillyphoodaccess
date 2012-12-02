@@ -21,7 +21,7 @@ class SnapWrap(object):
 	'''
 
 	#Default values, we may decide later to not do a default for address. The app currently gets the 5 closest locations, change max_results' default to change that
-	def __init__(self,address="1500 Market St",max_results=4,start_result=0):
+	def __init__(self,address="1500 Market St",max_results=10,start_result=0):
 		self.base_url = "http://www.phillysnap.com/stores/search.json/"
 		self.address = address
 		self.max_results = max_results
