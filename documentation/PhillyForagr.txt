@@ -1,0 +1,30 @@
+Obesity epidemic
+
+http://www.recipepuppy.com/api/?i=onions,garlic&q=omelet&p=3 - recipes
+http://www3.septa.org/hackathon/ - public transit
+http://www.phillysnap.com/stores/search.json/[address]/[optional # of results]/[optional start_at_result #] - locations of food places (data is from the food trust)
+
+
+Accept Address
+
+|
+V
+
+Retrieve locations of food
+Retrieve SEPTA/walking/biking directions for locations
+Maybe incorporate historic/scenic markers?
+
+|
+V
+
+Recipes (enter list of purchases, retrieve list of recipes)
+
+
+Overlay with demographic data to reveal demographic impact
+
+current setup - only SNAP retailers
+in the future - potentially an option for ones that are SNAP, or ones that are not SNAP?
+
+Contact food trust, etc. for data on non-SNAP retailers?
+Possibly use the L&I api for searching for a food retailer license?
+Filter by calories per serving to present healthier options
