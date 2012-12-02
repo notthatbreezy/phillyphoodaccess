@@ -15,13 +15,31 @@
             </div>
             <div id="collapse{{ forloop.counter }}" class="accordion-body collapse">
               <div class="accordion-inner">
-                To cook this dish, you need all of the following ingredients:
-                {% for ingredient in recipe.ingredient_lists %}
-                <ul>
-                    <li>{{ ingredient }}</li>
-                </ul>
-                {% endfor %}
+                <table class="table table-condensed table-bordered">
+                    <caption>To cook this dish, you need all of the following ingredients:</caption>
+                    {% for ingredient in recipe.ingredient_lists %}
+                    <tr>
+                        <td>{{ ingredient }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <table class="table table-condensed table-bordered">
+                    <caption>Nutrition Facts (per serving)</caption>
+                    <tr class="pending">
+                        <td>Nutrient</td>
+                        <td>Amount</td>
+                        <td>% Value (2,000 Calorie Diet)</td>
+                    </tr>
+                    {% for nutrient in recipe.nutrition_info %}
+                    <tr>
+                        <td>{{ nutrient.description }}</td>
+                        <td>{{ nutrient.value }} {{ nutrient.unit.plural }}</td>
+                        <td>{{ nutrient.percent }} &#37;</td>
+                    </tr>
+                    {% endfor %}
+                </table>
                 <a href="http://www.yummly.com/recipe/{{ recipe.id }}" class="btn" target="_blank">View the full recipe</a>
+                {{ recipe.attribution.html }}
               </div>
             </div>
         </div>
