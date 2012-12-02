@@ -23,17 +23,27 @@ a, a:visited {
     min-height: 100%;
     height: auto !important;
     height: 100%;
-    margin: 0 auto -60px;
+    margin: 0 auto -100px;
 }
 
 #push, #footer {
-    height: 60px;
+    height: 100px;
 }
 
 #footer {
     background: #F89406;
     border: 1px solid #CA7804;
     margin-top: 10px;
+}
+
+.footer-content {
+    height: 80%;
+    margin: 10px;
+    font-size: .85em;
+}
+
+.footer a, a:visited {
+    color: #478D47;
 }
 
 .app-header {
