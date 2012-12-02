@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+
+<div class="row-fluid">
+    <div class="span12">Your Search Failed! Please Try Again!</div>
+    <div class="span6 home-panel">
+        <h3>Buy Some Food</h3>
+        <div class="home-instructions"><p>Enter your address to find groceries near you:</p></div>
+        <form action="/directions" method="get">
+            <div class="home-form-field"><input type="text" name="d" class="input-block-level" placeholder="i.e. 1 Penn Square Philadelphia, PA 19107"></input></div>
+            <button type="submit" class="btn btn-large btn-block btn-warning">Let's Go Shopping!</button>
+        </form>
+            
+
+    </div>
+    <div class="span6 home-panel">
+        <h3>Make Some Food</h3>
+        <form action="/recipe_search" method="post">
+            <div class="home-instructions"><p>Enter the ingredients you have to find a meal:</p></div>
+            {% csrf_token %}
+            <div class="home-form-field"><textarea class="input-block-level" name="i" rows="3" placeholder="Milk, eggs, chicken, etc."></textarea></div>
+            <button type="submit" class="btn btn-large btn-block btn-warning">What's for dinner?</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
+

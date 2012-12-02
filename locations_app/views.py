@@ -12,6 +12,9 @@ from origin_encoder import *
 def home(request):
     return render_to_response('index.html', context_instance=RequestContext(request))
 
+def search_fail(request):
+    return render_to_response('search_again.html', context_instance=RequestContext(request))
+
 def direction_results(request):
     start_address = request.GET['d']
     phillysnap_data = SnapWrap(address=start_address)
