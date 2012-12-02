@@ -6,6 +6,8 @@ body {
     background: #E5E1B4;
     font-family: "Arial", "sans serif";
     color: rgb(52, 77, 52);
+    padding-right:0px;
+    padding-left:0px;
 }
 
 a, a:visited {
@@ -29,7 +31,9 @@ a, a:visited {
 }
 
 #footer {
-    background: black;
+    background: #F89406;
+    border: 1px solid #CA7804;
+    margin-top: 10px;
 }
 
 .app-header {
