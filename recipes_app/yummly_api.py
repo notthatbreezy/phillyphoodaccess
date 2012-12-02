@@ -7,6 +7,7 @@ from urllib import urlencode
 import pprint
 import json
 from operator import itemgetter
+import random
 
 pp = pprint.PrettyPrinter(indent=4)
 
@@ -26,7 +27,10 @@ class YummlySearch():
         r = requests.get(get_url, params=payload)
         print get_url
         result_dict = json.loads(r.text)
-        self.recipes = result_dict['matches']
+        if len(result_dict['matches']) > 10:
+            self.recipes = random.sample(result_dict['matches'], 10)
+        else:
+            self.recipes = result_dict['matches']
 
     def get_ingredients(self):
         def _get_recipe(recipe_id):
