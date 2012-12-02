@@ -42,4 +42,4 @@ class SnapWrap(object):
 		# r is an actual Python Requests response object, see http://docs.python-requests.org/en/latest/api/
 		#for other attributes you could use
 		r = requests.get(self.request_url)
-		return r.json
+		return r.content #.json
