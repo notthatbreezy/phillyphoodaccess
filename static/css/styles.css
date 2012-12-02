@@ -1,3 +1,13 @@
+body {
+    background: #E5E1B4;
+    font-family: "Arial", "sans serif";
+    color: rgb(52, 77, 52)
+}
+
+a, a:visited {
+    color: rgb(52, 77, 52);
+}
+
 .main-wrapper {
     width: 90%;
     margin: 0 auto;
@@ -14,16 +24,29 @@ table.recipes {
     margin: 0 auto;
 }
 
+.ingredient-result {
+    background: #ADC489;
+    border: 1px solid #99AC7D;
+    border-radius: 3px;
+}
+
+
 .header-text {
     text-alrign: center;
 }
 
+.header-logo a:hover {
+    opacity: 0.5;
+}
+
 .home-panel {
+    background: #ADC489;
     text-align: center;
-    border: 1px solid #E4E4E4;
+    border: 1px solid #99AC7D;
     height: 250px;
     border-radius: 3px;
     padding: 10px;
+    margin-top: 5px;
 }
 
 .home-form-field {
