@@ -27,6 +27,10 @@ def recipe_results(request):
             return redirect('/search_again/')
         # yummer.sort_recipes('ENERC_KCAL')
         # yummer.sorted_recipes_new()
-        return render_to_response('recipe_results.html', {"recipes":yummer.recipes}, context_instance=RequestContext(request))
+
+        if len(yummer.recipes) == 0:
+            return render_to_response('recipe_results.html', {"noResults":"No recipes with those ingredients..."})
+        else:
+            return render_to_response('recipe_results.html', {"recipes":yummer.recipes}, context_instance=RequestContext(request))
     else:
         return redirect('/')

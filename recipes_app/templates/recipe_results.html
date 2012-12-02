@@ -3,7 +3,14 @@
 {% block page_content %}
 <div class="row-fluid">
     <div class="span5 offset4">
-    <div class="accordion" id="accordion2">
+        <div class="accordion" id="accordion2">
+
+            {% if noResults %}
+            <div class="no-recipe-results">
+                {{noResults}}. Try <a href="/">searching again</a>
+            </div>
+            {% endif %}
+
     {% for recipe in recipes %}
         {% autoescape off %}
 
