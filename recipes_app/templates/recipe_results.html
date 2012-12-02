@@ -10,7 +10,7 @@
         <div class="accordion-group">
             <div class="accordion-heading">
               <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse{{ forloop.counter }}">
-                {{ recipe.title }}
+                {{ recipe.recipeName }}
               </a>
             </div>
             <div id="collapse{{ forloop.counter }}" class="accordion-body collapse">
@@ -21,7 +21,7 @@
                     <li>{{ ingredient }}</li>
                 </ul>
                 {% endfor %}
-                <a href="{{ recipe.href }}" target="_blank">View the full recipe</a>
+                <a href="http://www.yummly.com/recipe/{{ recipe.id }}" target="_blank">View the full recipe</a>
               </div>
             </div>
         </div>
