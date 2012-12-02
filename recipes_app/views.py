@@ -6,7 +6,7 @@ from django.template import RequestContext, loader
 from django.http import HttpResponse
 from subprocess import call
 import string
-from recipe_puppy_api import *
+from yummly_api import *
 
 def recipe_search(request):
     return render_to_response('recipe_home.html', context_instance=RequestContext(request))
@@ -14,5 +14,5 @@ def recipe_search(request):
 def recipe_results(request):
     ingredients = request.POST['i']
     # ingredients = ingredients.translate(string.maketrans("",""), string.punctuation)
-    recipes = recipe_puppy_search(ingredients)
+    recipes = yummly_recipe_search(ingredients)
     return render_to_response('recipe_results.html', {"recipes":recipes}, context_instance=RequestContext(request))
