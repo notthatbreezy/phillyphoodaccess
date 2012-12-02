@@ -4,18 +4,15 @@
 
 <h2>Directions Results</h2>
 
-{% comment %}
-{% autoescape off %}
-{{ phillysnap_results }}
-{% endautoescape %}
+<button id="locationsButton">Back to Locations</button>
 
-Or Max can do
-{% endcomment %}
-{{ phillysnap_results|safe }}
+<script type="text/javascript">
+var snapDataString = '{{ phillysnap_results|safe }}';
+</script>
 
-<h2>origin point</h2>
-
-{{ origin_geocode }}
+<script type="text/javascript">
+var myOrigin = '{{ origin_geocode|safe}}'
+</script>
 
 <div id="map" style="width: 750px; height: 300px"></div>
 
@@ -23,11 +20,6 @@ Or Max can do
 <script src="http://code.jquery.com/jquery.min.js"></script>
 <script src="../../static/directions.js"></script>
 
-<!-- CHANGE THIS -->
-<ul>
-{% for item in locations %}
-    <li>{{ item }}</li>
-{% endfor %}
-</ul>
+<ul id="snaplist"></ul>
 
 {% endblock %}
