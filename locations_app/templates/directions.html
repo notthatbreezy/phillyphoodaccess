@@ -4,9 +4,18 @@
 
 <h2>Directions Results</h2>
 
-{{ map_dictionary }}
+{# {% autoescape off %}
+{{ phillysnap_results }}
+{% endautoescape %}
 
-{% endblock %}
+Or Max can do #}
+
+{{ phillysnap_results|safe }}
+
+<h2>origin point</h2>
+
+{{ origin_geocode }}
+
 <div id="map" style="width: 750px; height: 300px"></div>
 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>

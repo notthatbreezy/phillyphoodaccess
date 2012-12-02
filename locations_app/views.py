@@ -14,7 +14,7 @@ def home(request):
 
 def direction_results(request):
     start_address = request.GET['d']
-    phillysnap_results = SnapWrap(address=start_address)
-    map_dictionary = phillysnap_results.json_r
-    map_dictionary['origin'] = encode_origin(start_address)
-    return render_to_response('directions.html', {'map_dictionary': map_dictionary}) #context_instance=RequestContext(request))
+    phillysnap_data = SnapWrap(address=start_address)
+    phillysnap_results = phillysnap_data.json_r
+    origin_geocode = encode_origin(start_address) #map_dictionary['origin'] = encode_origin(start_address)
+    return render_to_response('directions.html', {'phillysnap_results': phillysnap_results, 'origin_geocode': origin_geocode}) #context_instance=RequestContext(request))
