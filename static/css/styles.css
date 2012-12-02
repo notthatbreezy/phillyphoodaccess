@@ -1,7 +1,13 @@
+html, body {
+    height: 100%;
+}
+
 body {
     background: #E5E1B4;
     font-family: "Arial", "sans serif";
     color: rgb(52, 77, 52);
+    padding-right:0px;
+    padding-left:0px;
 }
 
 a, a:visited {
@@ -11,6 +17,33 @@ a, a:visited {
 .main-wrapper {
     width: 90%;
     margin: 0 auto;
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -100px;
+}
+
+#push, #footer {
+    height: 100px;
+}
+
+#footer {
+    background: #F89406;
+    border: 1px solid #CA7804;
+    margin-top: 10px;
+}
+
+.footer-content {
+    height: 80%;
+    margin: 10px;
+    font-size: .85em;
+}
+
+.footer a, a:visited {
+    color: #478D47;
 }
 
 .app-header {
