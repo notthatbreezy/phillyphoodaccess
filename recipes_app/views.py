@@ -18,4 +18,7 @@ def recipe_results(request):
     yummer = YummlySearch(yummly_app_id, yummly_app_key)
     yummer.recipe_search(ingredients)
     yummer.get_ingredients()
+    yummer.get_daily_percents(dv_dict)
+    # yummer.sort_recipes('ENERC_KCAL')
+    # yummer.sorted_recipes_new()
     return render_to_response('recipe_results.html', {"recipes":yummer.recipes}, context_instance=RequestContext(request))
