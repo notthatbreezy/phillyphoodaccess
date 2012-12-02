@@ -89,3 +89,8 @@ table.recipes {
 .home-form-field {
     height: 90px;
 }
+
+#map {
+    height: 300px;
+}
+

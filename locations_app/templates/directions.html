@@ -2,9 +2,11 @@
 
 {% block page_content %}
 
-<h2>Directions Results</h2>
-
-<button id="locationsButton">Back to Locations</button>
+<div class="span6 offset3">
+    <button class="btn" id="locationsButton">Back to Locations</button>
+    <br />
+    <br />
+</div>
 
 <script type="text/javascript">
 var snapDataString = '{{ phillysnap_results|safe }}';
@@ -14,12 +16,13 @@ var snapDataString = '{{ phillysnap_results|safe }}';
 var myOrigin = '{{ origin_geocode|safe}}'
 </script>
 
-<div id="map" style="width: 750px; height: 300px"></div>
-
+<div id="map" class="span6 offset3" ></div>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 <script src="http://code.jquery.com/jquery.min.js"></script>
 <script src="../../static/directions.js"></script>
 
-<ul id="snaplist"></ul>
+<div class="span6 offset3">
+    <ul id="snaplist" class="unstyled"></ul>
+</div>
 
 {% endblock %}
