@@ -1,6 +1,6 @@
 # Django settings for phillyphoodaccess project.
 
-DEBUG = False
+DEBUG = True 
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -67,7 +67,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/Users/Jason/phillyphoodaccess/static/', #CHANGEME
+    '/home/christopher/Github/phillyphoodaccess/static/', #CHANGEME
 
 )
 
@@ -108,7 +108,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/Users/Jason/phillyphoodaccess/locations_app/templates' #CHANGEME
+    '/home/christopher/Github/phillyphoodaccess/locations_app/templates' #CHANGEME
 )
 
 INSTALLED_APPS = (
@@ -123,6 +123,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'recipes_app',
+    'locations_app',
 )
 
 # A sample logging configuration. The only tangible logging
