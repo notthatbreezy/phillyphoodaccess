@@ -28,3 +28,4 @@ in the future - potentially an option for ones that are SNAP, or ones that are n
 Contact food trust, etc. for data on non-SNAP retailers?
 Possibly use the L&I api for searching for a food retailer license?
 Filter by calories per serving to present healthier options
+include an easy-to-navigate guide to SNAP benefits, what qualifies, and what doesn't.
