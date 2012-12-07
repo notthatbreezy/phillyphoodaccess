@@ -3,14 +3,12 @@ var directionsService = new google.maps.DirectionsService();
 var directionsDisplay = new google.maps.DirectionsRenderer();
 var map;
 
-// locations[i] corresponds to markers[i]
-// var snapData stores the map returned from snap service
-// with origin, market obj, stores array of objs
+
 var markers = [];
-var locations = [];
+var locations = [];			// locations[i] corresponds to markers[i]
 var listItems = [];
 
-var snapData = {};
+var snapData = {};			// Stores json returned from snap service
 var myLocation = {};
 
 bDisplayDirections = false;
@@ -46,6 +44,8 @@ function initialize() {
 	
 	var center = new google.maps.LatLng(myLocation.latitude, myLocation.longitude);		
 	map.setCenter(center);
+	
+	// Place a marker in my search location TODO
 	/*var marker = new google.maps.Marker({
 		map: map,
 		position: center,
@@ -53,39 +53,43 @@ function initialize() {
 		icon: "http://image.spreadshirt.com/image-server/v1/designs/12108165,width=190,height=190/Google-Map-marker.png"
 	});*/
 	
-	var list = document.getElementById('snaplist');
+	var table = document.getElementById('snapTable');
 	
-	var li = document.createElement('li');
-	var text = document.createTextNode(snapData.market.fulltext);
-	li.innerHTML = '<a href="#"/>'+snapData.market.fulltext;
-	//li.appendChild(text);
-	list.appendChild(li);
+	var tr = document.createElement('tr');
+	var td = document.createElement('td');
+	td.innerHTML = '<a href="#"/>'+snapData.market.fulltext;
+	tr.appendChild(td);
+	table.appendChild(tr);
 	
-	li.onclick = function() {
+	tr.onclick = function() {
 		var location = locations[0];
 		getDirections(myLocation.latitude, myLocation.longitude, snapData.market.latitude, snapData.market.longitude);
 	};
 	
-	li.onmouseover = function() {
+	tr.onmouseover = function() {
 		// Add bounce animation
 		animateLocationMarker(0);
 	};
 	
-	li.onmouseout = function() {
+	tr.onmouseout = function() {
 		// Remove the bounce animation
 		removeAnimation(0);
 	};
 	
-	listItems.push(li);
+	listItems.push(tr);
 	
 	// Cache the list items + set up event listeners
 	$.each(snapData.stores, function(index, store) {
 	
 		var item = document.createElement('li');
-		item.innerHTML = '<a href="#"/>'+store.store_name;
-		item.appendChild(text);
+		
+		var tr = document.createElement('tr');
+		var td = document.createElement('td');
+		
+		td.innerHTML = '<a href="#"/>'+store.store_name;
+		tr.appendChild(td);
 	
-		item.onclick = function() {
+		tr.onclick = function() {
 				return (function(index, store) {
 				// Load up the directions
 				var location = locations[index+1];
@@ -93,22 +97,22 @@ function initialize() {
 			})(index, store);
 		};
 
-		item.onmouseover = function() {
+		tr.onmouseover = function() {
 			// Add bounce animation
 			(function(index) {
 				animateLocationMarker(index+1);
 			})(index);
 		};
 		
-		item.onmouseout = function() {
+		tr.onmouseout = function() {
 			// Remove the bounce animation
 			(function(index) {
 				removeAnimation(index+1);
 			})(index);
 		};
 		
-		list.appendChild(item);
-		listItems.push(item);
+		table.appendChild(tr);
+		listItems.push(tr);
 	
 	});
 
